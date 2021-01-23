@@ -1,6 +1,7 @@
 {
   "name": "petful-server",
   "scripts": {
+    "start": "node server",
     "dev": "nodemon server"
   },
   "dependencies": {
