@@ -1,7 +1,7 @@
 const express = require('express');
 const json = require('body-parser').json()
 
-const LinkedList = require('./../LinkedList/LinkedList');
+const Queue = require('./../Queue/Queue');
 
 const router = express.Router()
 
@@ -13,11 +13,11 @@ const dogsList = [
   {Name: 'Bucky', Breed: 'Golden Retriever', Gender: 'Male', Description: 'A beautiful golden color, happy and kind', Age: '1yo', 'Journey To Us': 'Found wandering outside our door'}
 ];
 
-const dogsL = new LinkedList;
+const dogsL = new Queue;
 
 dogsList.forEach(obj => {
-  dogsL.insertLast(obj);
-})
+  dogsL.enqueue(obj);
+});
 
 router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
