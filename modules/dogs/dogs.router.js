@@ -1,7 +1,7 @@
 const express = require('express');
 const json = require('body-parser').json()
 
-const People = require('../people/people.service')
+const LinkedList = require('./../LinkedList/LinkedList');
 
 const router = express.Router()
 
@@ -13,13 +13,15 @@ const dogsList = [
   {Name: 'Bucky', Breed: 'Golden Retriever', Gender: 'Male', Description: 'A beautiful golden color, happy and kind', Age: '1yo', 'Journey To Us': 'Found wandering outside our door'}
 ];
 
-router.get('/', (req, res) => {
-  // Return all pets currently up for adoption.
-  res.json(dogsList);
+const dogsL = new LinkedList;
+
+dogsList.forEach(obj => {
+  dogsL.insertLast(obj);
 })
 
-router.delete('/', json, (req, res) => {
-  // Remove a pet from adoption.
+router.get('/', (req, res) => {
+  // Return all pets currently up for adoption.
+  res.json(dogsL);
 })
 
 module.exports = router

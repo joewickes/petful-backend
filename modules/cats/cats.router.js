@@ -1,9 +1,9 @@
-const express = require('express')
-const json = require('body-parser').json()
+const express = require('express');
+const json = require('body-parser').json();
 
-const People = require('../people/people.service')
+const LinkedList = require('./../LinkedList/LinkedList');
 
-const router = express.Router()
+const router = express.Router();
 
 const catsList = [
   {Name: 'Paul', Breed: 'Calico', Gender: 'Male', Description: 'A beautiful speckled color, happy and mischevious', Age: '1yo', 'Journey To Us': 'Found wandering outside our door'},
@@ -13,9 +13,15 @@ const catsList = [
   {Name: 'Steve', Breed: 'Calico', Gender: 'Male', Description: 'A beautiful speckled color, happy and mischevious', Age: '2yo', 'Journey To Us': 'Found wandering outside our door'}
 ];
 
+const catsL = new LinkedList;
+
+catsList.forEach(cat => {
+  return catsL.insertLast(cat);
+});
+
 router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
-  res.json(catsList);
+  res.json(catsL);
 })
 
 router.delete('/', json, (req, res) => {
