@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
     cats.push(catsL.dequeue());
   }
 
-  res.json(cats);
+  res.send(cats);
 })
 
 router.delete('/', json, (req, res) => {

@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
     cats.push(dogsL.dequeue());
   }
 
-  res.json(cats);
+  res.send(cats);
 })
 
 module.exports = router

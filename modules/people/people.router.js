@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
     people.push(peopleL.dequeue());
   }
 
-  res.json(people);
+  res.send(people);
 })
 
 module.exports = router
