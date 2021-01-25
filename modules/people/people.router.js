@@ -1,7 +1,7 @@
 const express = require('express');
 const json = require('body-parser').json();
 
-const Queue = require('./../Queue/Queue');
+const Queue = require('./../queue/Queue');
 
 const router = express.Router()
 
