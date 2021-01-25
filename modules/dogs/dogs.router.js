@@ -21,7 +21,13 @@ dogsList.forEach(obj => {
 
 router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
-  res.json(dogsL);
+  const cats = [];
+  const len = dogsL.length();
+  for (let i = 0; i < len; i++) {
+    cats.push(dogsL.dequeue());
+  }
+
+  res.json(cats);
 })
 
 module.exports = router

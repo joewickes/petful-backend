@@ -1,4 +1,3 @@
-// Creates a node containing the data and a reference to the next item
 class _Node {
   constructor(value) {
       this.value = value;
@@ -8,13 +7,11 @@ class _Node {
 
 class Queue {
   constructor() {
-    // Set initial data.
     this.first = null;
     this.last = null;
   }
 
   enqueue(data) {
-    // Add some data to the queue.
     const node = new _Node(data);
 
     if (this.first === null) {
@@ -24,24 +21,50 @@ class Queue {
     if (this.last) {
         this.last.next = node;
     }
-    //make the new node the last item on the queue
     this.last = node;
   }
 
   dequeue() {
-    // Remove some data from the queue.
-    //if the queue is empty, there is nothing to return
     if (this.first === null) {
       return;
     }
     const node = this.first;
     this.first = this.first.next;
 
-    //if this is the last item in the queue
     if (node === this.last) {
         this.last = null;
     }
     return node.value;
+  }
+
+  length() {
+    if (this.first === null) {
+      return;
+    }
+    let count = 0;
+    let current = this.first;
+
+    while (current !== null) {
+      count++;
+      current = current.next;
+    }
+
+    return count;
+  }
+
+  all() {
+    if (this.first === null) {
+      return;
+    }
+    const array = [];
+    let current = this.first;
+
+    while (current !== null) {
+      array.push(current);
+      current = current.next;
+    }
+
+    return array;
   }
 }
 

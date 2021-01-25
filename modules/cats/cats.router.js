@@ -21,7 +21,13 @@ catsList.forEach(cat => {
 
 router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
-  res.json(catsL);
+  const cats = [];
+  const len = catsL.length();
+  for (let i = 0; i < len; i++) {
+    cats.push(catsL.dequeue());
+  }
+
+  res.json(cats);
 })
 
 router.delete('/', json, (req, res) => {

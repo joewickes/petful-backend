@@ -10,8 +10,7 @@ const peopleList = [
   'name2', 
   'name3', 
   'name4', 
-  'name5', 
-  'name6'
+  'name5'
 ];
 
 const peopleL = new Queue;
@@ -21,8 +20,14 @@ peopleList.forEach(obj => {
 });
 
 router.get('/', (req, res) => {
-  // Return all the people currently in the queue.
-  res.json(peopleList);
+  // Return all pets currently up for adoption.
+  const people = [];
+  const len = peopleL.length();
+  for (let i = 0; i < len; i++) {
+    people.push(peopleL.dequeue());
+  }
+
+  res.json(people);
 })
 
 module.exports = router
