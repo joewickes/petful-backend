@@ -1,6 +1,6 @@
 # Petful Server
 
-# How to Use It
+## How to Use It
 
 Below are examples of the endpoints and what they require as inputs
 
@@ -18,3 +18,10 @@ Below are examples of the endpoints and what they require as inputs
 - Request Type: GET
 - Expected Data Type: N/A
 - Happy Path Response: 200 and an array of response objects from dequeued Queue
+
+## Tech Used
+- Express
+- Cors
+- Knex
+- Postgrator
+- BodyParser
