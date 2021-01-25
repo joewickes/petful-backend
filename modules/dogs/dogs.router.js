@@ -13,21 +13,22 @@ const dogsList = [
   {Name: 'Bucky', Breed: 'Golden Retriever', Gender: 'Male', Description: 'A beautiful golden color, happy and kind', Age: '1yo', 'Journey To Us': 'Found wandering outside our door'}
 ];
 
-const dogsL = new Queue;
-
-dogsList.forEach(obj => {
-  dogsL.enqueue(obj);
-});
-
 router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
-  const cats = [];
+  const dogs = [];
+
+  const dogsL = new Queue;
+
+  dogsList.forEach(obj => {
+    dogsL.enqueue(obj);
+  });
+
   const len = dogsL.length();
   for (let i = 0; i < len; i++) {
-    cats.push(dogsL.dequeue());
+    dogs.push(dogsL.dequeue());
   }
 
-  res.send(cats);
+  res.json(dogs);
 })
 
 module.exports = router

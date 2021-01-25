@@ -13,21 +13,22 @@ const peopleList = [
   'name5'
 ];
 
-const peopleL = new Queue;
-
-peopleList.forEach(obj => {
-  peopleL.enqueue(obj);
-});
-
 router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
+
+  const peopleL = new Queue;
+
+  peopleList.forEach(obj => {
+    peopleL.enqueue(obj);
+  });
+
   const people = [];
   const len = peopleL.length();
   for (let i = 0; i < len; i++) {
     people.push(peopleL.dequeue());
   }
 
-  res.send(people);
+  res.json(people);
 })
 
 module.exports = router

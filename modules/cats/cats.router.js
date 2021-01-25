@@ -13,21 +13,22 @@ const catsList = [
   {Name: 'Steve', Breed: 'Calico', Gender: 'Male', Description: 'A beautiful speckled color, happy and mischevious', Age: '2yo', 'Journey To Us': 'Found wandering outside our door'}
 ];
 
-const catsL = new Queue;
-
-catsList.forEach(cat => {
-  return catsL.enqueue(cat);
-});
-
 router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
   const cats = [];
+
+  const catsL = new Queue;
+
+  catsList.forEach(cat => {
+    return catsL.enqueue(cat);
+  });
+
   const len = catsL.length();
   for (let i = 0; i < len; i++) {
     cats.push(catsL.dequeue());
   }
 
-  res.send(cats);
+  res.json(cats);
 })
 
 router.delete('/', json, (req, res) => {
