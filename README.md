@@ -1,5 +1,11 @@
 # Petful Server
 
+## Link to Live App
+https://petful-frontend.vercel.app/
+
+## Client Side Repo
+https://github.com/joewickes/petful-frontend
+
 ## How to Use It
 
 Below are examples of the endpoints and what they require as inputs
